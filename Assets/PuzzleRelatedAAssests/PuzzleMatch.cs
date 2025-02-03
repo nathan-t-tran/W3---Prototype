@@ -18,8 +18,11 @@ public class PuzzleMatch : MonoBehaviour
 
     private void OnCollisionEnter (Collision collision)
     {
-        Debug.Log("i have collided");
-        puzzleSolved.SetActive(true);
+        if (collision.gameObject.tag == "puzzlePlate") //checks for a specific object type
+        {
+            //Debug.Log("i have collided with plate");
+            puzzleSolved.SetActive(true);
+        }
     }
 
     private void OnCollisionStay (Collision collision)
@@ -29,7 +32,7 @@ public class PuzzleMatch : MonoBehaviour
 
     private void OnCollisionExit (Collision collision)
     {
-        Debug.Log("i am not collided");
+        //Debug.Log("i am not collided");
         puzzleSolved.SetActive(false);
     }
     
